@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RITO STORE</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>LOGIN</h1>
+            <form id="login-form">
+                <label for="email">Enter email:</label>
+                <input type="email" id="email" required>
+                
+                <label for="password">Enter password:</label>
+                <input type="password" id="password" required>
+                
+                <a href="#" class="forgot-password">Forgot password?</a>
+                
+                <div>
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me?</label>
+                </div>
+                
+                <button type="submit">Login</button>
+            </form>
+            
+            <p>Log in through</p>
+            <div class="social-buttons">
+                <button type="button">Twitter</button>
+                <button type="button">Instagram</button>
+                <button type="button">Snapchat</button>
+                <button type="button">Google</button>
+            </div>
+            
+            <a href="page2.html" class="signup-instead">Sign up instead</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('login-form');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent the default form submission
+
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value.trim();
+
+                // Simple form validation
+                if (!email || !password) {
+                    alert('Please fill in both fields');
+                    return;
+                }
+
+                // Fetch call to the backend API
+                fetch('http://localhost:5004/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Response Data:', data);
+
+                    if (data.success) {
+                        alert('Login successful! Redirecting to products page...');
+                        window.location.href = 'page4.html'; // Redirect to products page after successful login
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error during login:', error);
+                    alert('Error during login. Please try again.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RITO STORE - Printers</title>
+    <link rel="stylesheet" href="styles4.css">
+</head>
+<body>
+    <div class="container">
+        <main role="main">
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="shopping.webp" alt="Canon Pixma MG2522">
+                    <div class="product-info">
+                        <h3>Canon Pixma MG2522 All-in-One Inkjet Printer, Scanner & Copier</h3>
+                        <p>$99.99</p>
+                        <div class="product-actions">
+                            <button onclick="addToCart('Canon Pixma MG2522', 99.99)">ADD TO CART</button>
+                            <button onclick="buyNow('Canon Pixma MG2522', 99.99)">BUY</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <img src="iwp.webp" alt="Canon PIXMA TS9520">
+                    <div class="product-info">
+                        <h3>Canon PIXMA TS9520 All In one Wireless Printer Home or Office | Scanner | Copier</h3>
+                        <p>$99.99</p>
+                        <div class="product-actions">
+                            <button onclick="addToCart('Canon PIXMA TS9520', 99.99)">ADD TO CART</button>
+                            <button onclick="buyNow('Canon PIXMA TS9520', 99.99)">BUY</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function addToCart(productName, price) {
+            alert(`Added ${productName} to cart. Price: $${price}`);
+            // Here you would typically send this data to the server or update local storage
+        }
+
+        function buyNow(productName, price) {
+            alert(`Buying ${productName} now. Price: $${price}`);
+            // Here you would typically redirect to a checkout page or process the order
+        }
+    </script>
+</body>
+</html>

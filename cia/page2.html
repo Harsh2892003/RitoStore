@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles2.css">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="container">
+        <div class="signup-form">
+            <h2>SIGN UP</h2>
+            <form id="signup-form">
+                <label for="email">Enter email:</label>
+                <input type="email" id="email" required>
+                
+                <label for="password">Choose password:</label>
+                <input type="password" id="password" required>
+                
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" required>
+                
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I accept the terms and conditions</label>
+                </div>
+                
+                <div class="buttons">
+                    <button type="button" onclick="window.location.href='page1.html'">HOME</button>
+                    <button type="submit">SIGNUP</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="page2.js"></script>
+</body>
+</html>
